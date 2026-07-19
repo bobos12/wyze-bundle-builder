@@ -1,6 +1,6 @@
 # Security System Bundle Builder
 
-**[▶ Live demo](https://bobos12.github.io/wyze-bundle-builder/)**
+**[▶ Live demo](https://wyze-bundle-builder-beta.vercel.app/)**
 
 A multi-step bundle builder with a live review panel, built as a React prototype
 from the provided Figma design. The shopper assembles a system through a

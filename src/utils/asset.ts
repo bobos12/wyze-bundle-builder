@@ -5,7 +5,8 @@
  * (`/products/cam-v4.jpg`). Those are runtime values, not imports, so Vite
  * cannot rewrite them at build time — served from a subpath such as GitHub
  * Pages' `/wyze-bundle-builder/` they would all 404. Routing them through
- * `import.meta.env.BASE_URL` keeps one spelling working under both.
+ * `import.meta.env.BASE_URL` (`"./"`, see vite.config.ts) keeps one spelling
+ * working at a domain root and under a subpath alike.
  */
 export function asset(path: string): string {
   const base = import.meta.env.BASE_URL;
