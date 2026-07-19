@@ -17,8 +17,9 @@ interface VariantSelectorProps {
 /**
  * A radiogroup of colour chips, each showing a product photo thumbnail (the
  * variant's own image if it has one, else the product's default image).
- * Selecting a chip makes it the *active* variant — the one the card's
- * stepper reads and edits — without touching any other variant's quantity.
+ * Selecting a chip makes it the *active* variant — the one the card's stepper
+ * reads and edits — and carries the current quantity across, so recolouring a
+ * selection re-colours it rather than emptying the stepper.
  */
 export function VariantSelector({
   productName,

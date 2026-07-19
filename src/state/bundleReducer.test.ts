@@ -127,6 +127,46 @@ describe("accordion", () => {
   });
 });
 
+describe("changing colour", () => {
+  it("carries the quantity over so the stepper does not appear to reset", () => {
+    // Mirrors the UI: the stepper only ever edits the active variant.
+    const next = run(
+      empty,
+      { type: "setActiveVariant", productId: "cam-v4", variantId: "black" },
+      { type: "increment", productId: "cam-v4", variantId: "black" },
+      { type: "increment", productId: "cam-v4", variantId: "black" },
+      { type: "setActiveVariant", productId: "cam-v4", variantId: "white" },
+    );
+    expect(next.quantities).toEqual({ [variantKey("cam-v4", "white")]: 2 });
+    expect(next.activeVariant["cam-v4"]).toBe("white");
+  });
+
+  it("merges into a colour that already holds stock", () => {
+    const next = run(
+      {
+        ...empty,
+        quantities: {
+          [variantKey("cam-v4", "black")]: 2,
+          [variantKey("cam-v4", "white")]: 1,
+        },
+        activeVariant: { "cam-v4": "black" },
+      },
+      { type: "setActiveVariant", productId: "cam-v4", variantId: "white" },
+    );
+    expect(next.quantities).toEqual({ [variantKey("cam-v4", "white")]: 3 });
+  });
+
+  it("is a no-op on quantities when nothing is selected yet", () => {
+    const next = run(empty, {
+      type: "setActiveVariant",
+      productId: "cam-v4",
+      variantId: "white",
+    });
+    expect(next.quantities).toEqual({});
+    expect(next.activeVariant["cam-v4"]).toBe("white");
+  });
+});
+
 describe("immutability", () => {
   it("never mutates the state it is given", () => {
     const before = JSON.stringify(seedState);

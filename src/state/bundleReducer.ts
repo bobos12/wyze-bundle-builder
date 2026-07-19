@@ -30,6 +30,15 @@ function minQty(productId: string): number {
   return productsById[productId]?.required ? 1 : 0;
 }
 
+/** The variant the stepper is currently bound to, before any change. */
+function activeVariantId(state: PersistedState, productId: string): string {
+  return (
+    state.activeVariant[productId] ??
+    productsById[productId]?.variants?.[0]?.id ??
+    DEFAULT_VARIANT
+  );
+}
+
 function clampQty(productId: string, qty: number): number {
   return Math.max(minQty(productId), Math.min(MAX_QTY, Math.trunc(qty)));
 }
@@ -79,14 +88,34 @@ export function bundleReducer(
     case "setQuantity":
       return setQuantity(state, action.productId, action.variantId, action.qty);
 
-    case "setActiveVariant":
-      return {
-        ...state,
-        activeVariant: {
-          ...state.activeVariant,
-          [action.productId]: action.variantId,
-        },
+    case "setActiveVariant": {
+      const activeVariant = {
+        ...state.activeVariant,
+        [action.productId]: action.variantId,
       };
+
+      // Colour is an attribute of the shopper's selection, not a separate line:
+      // recolouring carries the units across so the stepper keeps its count
+      // instead of appearing to reset to zero. A destination that already holds
+      // stock (only reachable from persisted state) absorbs them.
+      const fromKey = variantKey(
+        action.productId,
+        activeVariantId(state, action.productId),
+      );
+      const toKey = variantKey(action.productId, action.variantId);
+      const carried = state.quantities[fromKey] ?? 0;
+      if (fromKey === toKey || carried <= 0) {
+        return { ...state, activeVariant };
+      }
+
+      const quantities = { ...state.quantities };
+      delete quantities[fromKey];
+      quantities[toKey] = clampQty(
+        action.productId,
+        (state.quantities[toKey] ?? 0) + carried,
+      );
+      return { ...state, activeVariant, quantities };
+    }
 
     case "selectSingle": {
       // Single-select step (e.g. plan): chosen product -> 1, siblings -> 0.
