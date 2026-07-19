@@ -34,7 +34,11 @@ jobs:
       - run: npm test
       - run: npm run build
 
+      # `enablement` turns Pages on for the repo if it is not already, so the
+      # first deploy needs no manual settings change.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
