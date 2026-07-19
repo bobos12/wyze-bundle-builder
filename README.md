@@ -1,6 +1,6 @@
 # Security System Bundle Builder
 
-**[▶ Live demo](https://wyze-bundle-builder-beta.vercel.app/)**
+**[▶ Live demo — wyze-bundle-builder-beta.vercel.app](https://wyze-bundle-builder-beta.vercel.app/)**
 
 A multi-step bundle builder with a live review panel, built as a React prototype
 from the provided Figma design. The shopper assembles a system through a
@@ -16,7 +16,7 @@ npm install && npm run dev     # Node 18+
 ```
 
 `npm run lint` · `npm run build` · `npm test` (40 tests) all pass clean from a
-fresh clone, and run on every push via [CI](.github/workflows/deploy.yml).
+fresh clone. Deployed on Vercel from `main`.
 
 ---
 
