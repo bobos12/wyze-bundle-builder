@@ -9,6 +9,30 @@ Built with **React 18 + TypeScript + Vite**, styled with **CSS Modules** and
 CSS custom properties. No UI framework — every component and token is
 hand-built to match the design.
 
+The source Figma frame this was built against is checked in at
+[`docs/design-reference.png`](docs/design-reference.png) for side-by-side comparison.
+
+---
+
+## For reviewers — start here
+
+```bash
+npm install && npm run dev
+```
+
+Then, if you want the 60-second tour of the parts worth looking at:
+
+| What | Where |
+|---|---|
+| All state transitions (pure, tested) | [`src/state/bundleReducer.ts`](src/state/bundleReducer.ts) |
+| All derived values (pure, tested) | [`src/state/selectors.ts`](src/state/selectors.ts) |
+| The entire product catalog — no markup per product | [`src/data/catalog.json`](src/data/catalog.json) |
+| The trickiest behaviour (per-variant quantities) | [Variants](#variants-the-interesting-part), below |
+| Judgement calls I had to make | [Decisions & trade-offs](#decisions--trade-offs), below |
+
+`npm run lint`, `npm run build`, and `npm test` (40 tests) all pass clean from a
+fresh clone.
+
 ---
 
 ## Run it
@@ -186,7 +210,6 @@ npm test
 
 ## Not finished / would do next
 
-- Wire real product photography once the assets are available (see above).
 - Component-level tests driving the accordion and stepper through the DOM
   (`@testing-library/react` is already wired up for this).
 - The Checkout button is a prototype confirmation only, as specified.
