@@ -66,3 +66,11 @@ export function PlusIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function ChevronDownIcon(props: IconProps) {
+  return (
+    <svg width={24} height={28} viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 16L4 8h16z" />
+    </svg>
+  );
+}

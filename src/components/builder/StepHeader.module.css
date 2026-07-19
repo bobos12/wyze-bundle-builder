@@ -79,7 +79,7 @@
 .chevron {
   width: 16px;
   height: 16px;
-  color: var(--c-ink-700);
+  color: var(--c-purple);
   transition: transform var(--dur) var(--ease);
 }
 
