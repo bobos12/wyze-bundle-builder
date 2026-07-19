@@ -31,6 +31,8 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: 10% 50%;
+  margin-left: -4px;  
 }
 
 .info {
