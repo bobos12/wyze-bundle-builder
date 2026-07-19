@@ -1,5 +1,7 @@
 # Security System Bundle Builder
 
+[![CI](https://github.com/bobos12/wyze-bundle-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/bobos12/wyze-bundle-builder/actions/workflows/ci.yml)
+
 **[▶ Live demo — wyze-bundle-builder-beta.vercel.app](https://wyze-bundle-builder-beta.vercel.app/)**
 
 A multi-step bundle builder with a live review panel, built as a React prototype
@@ -16,7 +18,7 @@ npm install && npm run dev     # Node 18+
 ```
 
 `npm run lint` · `npm run build` · `npm test` (40 tests) all pass clean from a
-fresh clone. Deployed on Vercel from `main`.
+fresh clone, and run in CI on every push. Deployed on Vercel from `main`.
 
 ---
 
