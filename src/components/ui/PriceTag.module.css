@@ -1,0 +1,68 @@
+.price {
+  display: flex;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+}
+
+.stack {
+  flex-direction: column;
+  gap: 3px;
+}
+
+.inline {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.start {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.end {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.compare {
+  color: var(--c-strike);
+  text-decoration: line-through;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.active {
+  color: var(--c-gray-500);
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* The active price reads the same neutral gray whether or not the line has
+   a compare-at — only the badge and the struck-through price signal the
+   discount. */
+.discounted {
+  color: var(--c-gray-500);
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* size="lg": identical to normal everywhere except the wide review-panel
+   list, where the design calls for noticeably larger, inline (not stacked)
+   price text — compare-at and active price sit side by side. */
+@media (min-width: 1440px) {
+  .lg.stack {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .lg .active,
+  .lg .discounted {
+    font-size: 20px;
+  }
+
+  .lg .compare {
+    font-size: 18px;
+  }
+}

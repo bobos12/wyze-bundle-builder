@@ -1,0 +1,185 @@
+.panel {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 22px 26px;
+  background: #EDF4FF;
+  border-radius: 14px;
+}
+
+.listCol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.summaryCol {
+  min-width: 0;
+}
+
+/* Very large screens: the panel is now full-width (see App.module.css) — split
+   it into an itemised list on the left and the checkout summary on the right,
+   matching the design, instead of stacking everything in one narrow column. */
+@media (min-width: 1440px) {
+  .panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: start;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: left;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--c-gray-600);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1.15;
+  margin-bottom: -24px;
+}
+
+.subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--c-gray-700);
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 0;
+  border-top: 1px solid var(--c-gray-300);
+}
+
+.groupLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--c-gray-600);
+  margin-bottom: 4px;
+}
+
+.lines {
+  display: grid;
+  grid-template-columns: 40px 1fr auto auto;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 18px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.empty {
+  padding: 20px 0;
+  font-size: 14px;
+  color: var(--c-gray-700);
+  text-align: center;
+}
+
+/* Fast Shipping — the last line of the itemised list, same row chrome as a
+   ReviewLine (icon box + label + price) but with no stepper. */
+.shipping {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid var(--c-gray-300);
+}
+
+.shipLeft {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.truckBox {
+  width: 40px;
+  height: 40px;
+  background: var(--c-white);
+  border: 1px solid var(--c-gray-300);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truck {
+  width: 26px;
+  height: 26px;
+  color: var(--c-purple);
+}
+
+.shipLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-ink-800);
+}
+
+/* Very large screens: tighter row spacing and a wider thumb column, matching
+   the bigger thumb/name text ReviewLine switches to at this breakpoint (see
+   ReviewLine.module.css) — and the shipping row scales up to match. */
+@media (min-width: 1440px) {
+  .panel {
+    padding: 48px 64px;
+  }
+
+  .eyebrow {
+    display: none;
+  }
+
+  .header {
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
+
+  .lines {
+    grid-template-columns: 48px 1fr auto auto;
+    row-gap: 22px;
+  }
+
+  .group {
+    padding: 24px 0;
+  }
+
+  .shipping {
+    padding: 24px 0;
+  }
+
+  .truckBox {
+    width: 48px;
+    height: 48px;
+  }
+
+  .truck {
+    width: 30px;
+    height: 30px;
+  }
+
+  .shipLabel {
+    font-size: 22px;
+  }
+}

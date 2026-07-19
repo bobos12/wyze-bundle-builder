@@ -1,0 +1,94 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ordinal {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--c-gray-600);
+  padding: 12px 20px;
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: #1F1F1F;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.header:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--c-ink);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--c-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.state {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.count {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--c-purple);
+  white-space: nowrap;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--c-ink-700);
+  transition: transform var(--dur) var(--ease);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 520px) {
+  .title {
+    font-size: 18px;
+  }
+}

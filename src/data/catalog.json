@@ -1,0 +1,172 @@
+{
+  "reviewGroups": [
+    { "id": "cameras", "label": "Cameras" },
+    { "id": "sensors", "label": "Sensors" },
+    { "id": "accessories", "label": "Accessories" },
+    { "id": "plan", "label": "Plan" }
+  ],
+  "shipping": { "label": "Fast Shipping", "compareAt": 599, "active": 0 },
+  "guarantee": {
+    "days": 30,
+    "label": "Wyze satisfaction guarantee",
+    "returnsHeading": "30-day hassle-free returns",
+    "returnsBody": "If you're not totally in love with the product, we will refund you 100%."
+  },
+  "financing": { "label": "as low as $19.19/mo" },
+  "steps": [
+    {
+      "id": "cameras",
+      "title": "Choose your cameras",
+      "icon": "camera",
+      "products": [
+        {
+          "id": "cam-v4",
+          "name": "Wyze Cam v4",
+          "description": "The clearest Wyze Cam ever made.",
+          "image": "/products/cam-v4.jpg",
+          "price": { "compareAt": 3598, "active": 2798, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "cameras",
+          "variants": [
+            { "id": "white", "label": "White", "swatch": "#FFFFFF" },
+            { "id": "grey", "label": "Grey", "swatch": "#9AA0A6" },
+            { "id": "black", "label": "Black", "swatch": "#1F1F1F" }
+          ]
+        },
+        {
+          "id": "cam-pan-v3",
+          "name": "Wyze Cam Pan v3",
+          "description": "360° pan and 180° tilt security camera.",
+          "image": "/products/cam-pan-v3.jpg",
+          "price": { "compareAt": 3998, "active": 3498, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "cameras",
+          "variants": [
+            { "id": "white", "label": "White", "swatch": "#FFFFFF" },
+            { "id": "black", "label": "Black", "swatch": "#1F1F1F" }
+          ]
+        },
+        {
+          "id": "floodlight-v2",
+          "name": "Wyze Cam Floodlight v2",
+          "description": "2K floodlight camera with a 160° wide-angle view for your garage.",
+          "image": "/products/floodlight-v2.jpg",
+          "price": { "compareAt": 8998, "active": 6998, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "cameras",
+          "variants": [
+            { "id": "white", "label": "White", "swatch": "#FFFFFF" },
+            { "id": "black", "label": "Black", "swatch": "#1F1F1F" }
+          ]
+        },
+        {
+          "id": "doorbell",
+          "name": "Wyze Duo Cam Doorbell",
+          "description": "Two cameras. Two views. Double the porch protection.",
+          "image": "/products/doorbell.jpg",
+          "price": { "active": 6998, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "cameras"
+        },
+        {
+          "id": "battery-cam-pro",
+          "name": "Wyze Battery Cam Pro",
+          "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
+          "image": "/products/battery-cam-pro.jpg",
+          "price": { "active": 8998, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "cameras",
+          "variants": [
+            { "id": "white", "label": "White", "swatch": "#FFFFFF" },
+            { "id": "black", "label": "Black", "swatch": "#1F1F1F" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "title": "Choose your plan",
+      "icon": "shield",
+      "products": [
+        {
+          "id": "cam-unlimited",
+          "name": "Cam Unlimited",
+          "description": "Unlimited cloud recording and 24/7 continuous coverage for every camera.",
+          "image": "/products/cam-unlimited.svg",
+          "price": { "compareAt": 1299, "active": 999, "cadence": "monthly" },
+          "selectionMode": "single",
+          "reviewGroup": "plan"
+        },
+        {
+          "id": "no-plan",
+          "name": "No subscription",
+          "description": "Keep live streaming and local recording. Add a plan anytime.",
+          "image": "/products/no-plan.svg",
+          "price": { "active": 0, "cadence": "monthly" },
+          "selectionMode": "single",
+          "reviewGroup": "plan"
+        }
+      ]
+    },
+    {
+      "id": "sensors",
+      "title": "Choose your sensors",
+      "icon": "sensor",
+      "products": [
+        {
+          "id": "motion-sensor",
+          "name": "Wyze Sense Motion Sensor",
+          "description": "Detects motion up to 25 feet away and triggers alerts instantly.",
+          "image": "/products/motion-sensor.jpg",
+          "price": { "active": 2999, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "sensors"
+        },
+        {
+          "id": "sense-hub",
+          "name": "Wyze Sense Hub (Required)",
+          "description": "The brain of your system — connects and powers every sensor.",
+          "image": "/products/sense-hub.jpg",
+          "price": { "compareAt": 2992, "active": 0, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "sensors",
+          "required": true
+        },
+        {
+          "id": "entry-sensor",
+          "name": "Wyze Sense Entry Sensor",
+          "description": "Know the moment a door or window opens.",
+          "image": "/products/entry-sensor.svg",
+          "price": { "active": 1999, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "sensors"
+        }
+      ]
+    },
+    {
+      "id": "protection",
+      "title": "Add extra protection",
+      "icon": "protection",
+      "products": [
+        {
+          "id": "microsd",
+          "name": "Wyze MicroSD Card (256GB)",
+          "description": "Local backup storage so your footage is always saved.",
+          "image": "/products/microsd.jpg",
+          "price": { "active": 2098, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "accessories"
+        },
+        {
+          "id": "keypad",
+          "name": "Wyze Sense Keypad",
+          "description": "Arm and disarm your system with a secure PIN.",
+          "image": "/products/keypad.svg",
+          "price": { "active": 2999, "cadence": "once" },
+          "selectionMode": "quantity",
+          "reviewGroup": "accessories"
+        }
+      ]
+    }
+  ]
+}

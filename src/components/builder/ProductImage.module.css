@@ -1,0 +1,20 @@
+.image,
+.placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* The product shots are JPEGs with a baked-in white background. Multiply drops
+   that white into the card background so the product sits on the card rather
+   than in a white rectangle. */
+.image {
+  mix-blend-mode: multiply;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-white);
+}

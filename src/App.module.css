@@ -1,0 +1,82 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.layout {
+  width: 100%;
+  max-width: var(--page-max);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--col-gap);
+}
+
+.builderCol {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.reviewCol {
+  flex: 0 0 var(--review-width);
+  position: sticky;
+  top: 24px;
+}
+
+/* Tablet & below: stack the review panel beneath the builder. */
+@media (max-width: 980px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .reviewCol {
+    position: static;
+    flex-basis: auto;
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* Very large screens: the sidebar review panel stacks full-width beneath the
+   builder instead of staying pinned narrow beside it, so both sections can use
+   the extra room (wider card grid, two-column review). */
+@media (min-width: 1440px) {
+  .layout {
+    max-width: 1220px;
+    flex-direction: column;
+    align-items: stretch; /* base align-items:flex-start would shrink-to-fit
+      builderCol/reviewCol now that they stack instead of sitting side by side */
+  }
+
+  .builderCol {
+    width: 100%;
+  }
+
+  .reviewCol {
+    position: static;
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 16px 0;
+  }
+
+  .layout {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .builderCol {
+    width: 100%;
+  }
+
+  .reviewCol {
+    position: static;
+    flex-basis: auto;
+    width: 100%;
+  }
+}

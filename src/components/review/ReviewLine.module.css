@@ -1,0 +1,94 @@
+/* Rows share a single grid (defined on the parent <ul>, see .lines in
+   ReviewPanel.module.css) so the +/- column lines up across every line
+   regardless of how wide that row's price text happens to be. */
+.line {
+  display: contents;
+}
+
+.stepperSlot {
+  display: flex;
+  align-items: center;
+}
+
+.thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: var(--c-white);
+  border: 1px solid var(--c-gray-300);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planThumb {
+  background: transparent;
+  border: none;
+}
+
+.planIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info {
+  min-width: 0;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--c-ink-800);
+}
+
+/* The plan row reads as a hero line: bigger, bolder name. */
+.planName {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.planNameHighlight {
+  color: #4E2FD2;
+  font-weight: 700;
+}
+
+.variant {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--c-gray-600);
+  margin-top: 1px;
+}
+
+.price {
+  grid-column: 4; /* rows with no stepper (plans) would otherwise land in
+    column 3, the stepper's slot, misaligning against every other row */
+  justify-self: end;
+  min-width: 56px;
+}
+
+/* Very large screens: the review list has room to run much bigger — matches
+   the design's oversized thumb + name text in the wide two-column layout. */
+@media (min-width: 1440px) {
+  .thumb {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Gilroy-Medium 18, per spec — Manrope is the closest free stand-in for
+     Gilroy (see index.css), so weight 500 approximates "Medium". */
+  .name {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .planName {
+    font-size: 24px;
+  }
+
+  .variant {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,116 @@
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border-top: 1px solid #1F1F1F;
+}
+
+/* Step 1 has no divider above it. `:first-of-type` (not `:first-child`) because
+   the builder renders a heading element before the steps. */
+.step:first-of-type {
+  border-top: none;
+}
+
+/* Collapsible panel: animate the grid row from 0fr to 1fr. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur) var(--ease);
+}
+
+.open {
+  grid-template-rows: 1fr;
+}
+
+.step.open {
+  background: #EDF4FF;
+}
+
+.panelClip {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.panelInner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 12px 20px 20px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.open .panelInner {
+  opacity: 1;
+  transform: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  justify-items: center;
+}
+
+.grid > * {
+  width: 100%;
+}
+
+.grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+/* Single-column cards on narrow builders. */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .grid > :last-child:nth-child(odd) {
+    max-width: 100%;
+  }
+}
+
+/* Very large screens: the builder is now full-width (see App.module.css), so
+   let cards wrap into as many equal-width columns as fit — matching the
+   design's single-row layout — instead of a fixed 2-up grid. */
+@media (min-width: 1440px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* Advance button — outlined pill that fills on hover. */
+.next {
+  align-self: center;
+  height: 39px;
+  padding: 5px 24px;
+  border: 1px solid var(--c-purple);
+  border-radius: var(--r-btn);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--c-purple);
+  background: var(--c-white);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.next:hover {
+  background: var(--c-purple);
+  color: var(--c-white);
+}
+
+.next:active {
+  transform: translateY(1px);
+}

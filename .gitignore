@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Test output
+coverage
+
+# Scaffolding leftovers (created during the build sandbox; not part of the app)
+package.full.json
+tsconfig.node.json
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

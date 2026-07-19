@@ -1,0 +1,88 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-control);
+  background: var(--c-white);
+  border: 1px solid var(--c-gray-300);
+  color: var(--c-ink);
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--c-gray-200);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+/* At the lower bound the minus button reads as inactive via a muted grey
+   background — the glyph itself stays full-strength. */
+.btn:disabled {
+  background: var(--c-gray-300);
+  border-color: var(--c-gray-300);
+  cursor: not-allowed;
+}
+
+.glyph {
+  width: 12px;
+  height: 12px;
+}
+
+.value {
+  min-width: 14px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--c-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Compact variant for the review panel. */
+.sm {
+  gap: 8px;
+}
+
+.sm .btn {
+  width: 22px;
+  height: 22px;
+}
+
+.sm .glyph {
+  width: 10px;
+  height: 10px;
+}
+
+.sm .value {
+  font-size: 14px;
+}
+
+/* Very large screens: the review list runs much bigger overall (see
+   ReviewLine.module.css), so its +/- buttons need to scale up to match
+   instead of staying at the compact sidebar size. */
+@media (min-width: 1440px) {
+  .sm .btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sm .glyph {
+    width: 13px;
+    height: 13px;
+  }
+
+  .sm .value {
+    font-size: 17px;
+  }
+}

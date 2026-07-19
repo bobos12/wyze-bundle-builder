@@ -1,0 +1,125 @@
+/* ============================================================================
+   Design tokens — extracted verbatim from the Figma (Wyze purple #4E2FD2,
+   the Gray-C ramp, the variant + price colours, etc.). Everything downstream
+   references these variables, so the palette lives in exactly one place.
+   ========================================================================== */
+:root {
+  /* Brand + ink */
+  --c-purple: #4e2fd2;
+  --c-purple-weak: rgba(78, 47, 210, 0.7);
+  --c-ink: #0b0d10;
+  --c-ink-800: #1f1f1f;
+  --c-ink-700: #484848;
+  --c-gray-700: #525963;
+  --c-gray-600: #6f7882;
+  --c-gray-500: #575757;
+  --c-gray-400: #ced6de;
+  --c-gray-300: #e6ebf0;
+  --c-gray-200: #f0f4f7;
+  --c-white: #ffffff;
+
+  /* Semantic */
+  --c-link: #0000ee;
+  --c-strike: var(--c-discount);
+  --c-variant: #0aa288;
+  --c-variant-bg: rgba(29, 240, 187, 0.04);
+  --c-chip-border: #cccccc;
+  --c-discount: #e02020;
+  --c-review-bg: #edeefb;
+  --c-savings: #0aa288;
+  --c-body-text: rgba(31, 31, 31, 0.75);
+
+  /* Radii */
+  --r-card: 10px;
+  --r-btn: 7px;
+  --r-control: 4px;
+  --r-chip: 2px;
+
+  /* Typography */
+  --font-sans: "Manrope", "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+
+  /* Layout */
+  --page-max: 1180px;
+  --col-gap: 24px;
+  --review-width: 384px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 220ms;
+}
+
+/* ---- Reset -------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--c-ink-800);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: var(--c-link);
+}
+
+/* Consistent, visible keyboard focus everywhere. */
+:where(button, a, [tabindex]):focus-visible {
+  outline: 2px solid var(--c-purple);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Screen-reader-only utility. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

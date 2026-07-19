@@ -1,0 +1,206 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Guarantee + total -------------------------------------------------------- */
+/* Only ever 2 columns (seal, everything else) — a 3rd "auto" column sized off
+   the total's own price text fought with the returns heading for space at the
+   wide breakpoint, so totalsRow instead owns the full non-seal width and
+   flips its own internal direction per breakpoint. */
+.guaranteeGrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "seal totalsRow";
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: center;
+}
+
+.seal {
+  grid-area: seal;
+  flex-shrink: 0;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+
+/* The descriptive returns copy only appears on the wide layout, beside the
+   seal — narrower layouts just show the seal + compact financing/total. */
+.guaranteeText {
+  display: none;
+}
+
+.guaranteeHeading {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-ink);
+}
+
+.guaranteeBody {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--c-gray-700);
+}
+
+.totalsRow {
+  grid-area: totalsRow;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.finance {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--c-purple);
+  color: var(--c-white);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.totalLine {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.compareTotal {
+  font-size: 16px;
+  color: var(--c-gray-600);
+  text-decoration: line-through;
+}
+
+.grandTotal {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--c-purple);
+  letter-spacing: -0.5px;
+}
+
+/* Very large screens: the seal sits beside descriptive returns copy, and the
+   financing badge + total move to their own row beneath it. */
+@media (min-width: 1440px) {
+  .summary {
+    gap: 22px;
+  }
+
+  .guaranteeGrid {
+    grid-template-areas:
+      "seal text"
+      "totalsRow totalsRow";
+    column-gap: 24px;
+    row-gap: 18px;
+  }
+
+  .seal {
+    width: 140px;
+    height: 140px;
+  }
+
+  .guaranteeText {
+    display: block;
+  }
+
+  .guaranteeHeading {
+    font-size: 24px;
+  }
+
+  .guaranteeBody {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  .totalsRow {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .finance {
+    align-self: center;
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .compareTotal {
+    font-size: 20px;
+  }
+
+  .grandTotal {
+    font-size: 36px;
+  }
+
+  .savings {
+    font-size: 16px;
+  }
+
+  .checkout {
+    padding: 16px 20px;
+    font-size: 18px;
+  }
+}
+
+/* Savings ------------------------------------------------------------------ */
+.savings {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-savings);
+}
+
+/* Checkout ----------------------------------------------------------------- */
+.checkout {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: var(--c-purple);
+  color: var(--c-white);
+  font-size: 16px;
+  font-weight: 700;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.checkout:hover {
+  background: #3f24b0;
+}
+
+.checkout:active {
+  transform: translateY(1px);
+}
+
+.confirm {
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(10, 162, 136, 0.1);
+  color: var(--c-gray-700);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.confirmBack {
+  display: block;
+  margin: 8px auto 0;
+  color: var(--c-purple);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.saveLink {
+  align-self: center;
+  color: var(--c-gray-700);
+  font-size: 13px;
+  font-style: italic;
+  text-decoration: underline;
+  transition: color var(--dur) var(--ease);
+}
+
+.saveLink:hover {
+  color: var(--c-purple);
+}
