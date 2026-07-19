@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { catalog } from "../../data/catalog";
 import type { Totals } from "../../state/selectors";
 import { useBundle } from "../../state/useBundle";
+import { asset } from "../../utils/asset";
 import { formatMoney } from "../../utils/format";
 import styles from "./ReviewSummary.module.css";
 
@@ -32,7 +33,7 @@ export function ReviewSummary({ totals }: { totals: Totals }) {
     <div className={styles.summary}>
       <div className={styles.guaranteeGrid}>
         <img
-          src="/icons/satisfaction-badge.png"
+          src={asset("/icons/satisfaction-badge.png")}
           alt="30-day Wyze satisfaction guarantee"
           className={styles.seal}
         />

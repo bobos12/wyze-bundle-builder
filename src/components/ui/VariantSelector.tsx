@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import type { Variant } from "../../data/types";
+import { asset } from "../../utils/asset";
 import styles from "./VariantSelector.module.css";
 
 interface VariantSelectorProps {
@@ -67,7 +68,7 @@ export function VariantSelector({
           >
             <img
               className={styles.swatch}
-              src={variant.image ?? productImage}
+              src={asset(variant.image ?? productImage)}
               alt=""
               aria-hidden="true"
               draggable={false}

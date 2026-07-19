@@ -1,4 +1,5 @@
 import type { IconKey } from "../../data/types";
+import { asset } from "../../utils/asset";
 import { StepIcon } from "../icons";
 import styles from "./StepHeader.module.css";
 
@@ -47,7 +48,7 @@ export function StepHeader({
             <span className={styles.count}>{selectedCount} selected</span>
           )}
           <img
-            src="/icons/caret-down.png"
+            src={asset("/icons/caret-down.png")}
             className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ""}`}
             alt=""
             aria-hidden="true"

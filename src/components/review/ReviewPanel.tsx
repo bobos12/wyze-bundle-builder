@@ -1,4 +1,5 @@
 import { catalog } from "../../data/catalog";
+import { asset } from "../../utils/asset";
 import { useBundle } from "../../state/useBundle";
 import { reviewGroups, totals } from "../../state/selectors";
 import { PriceTag } from "../ui/PriceTag";
@@ -55,7 +56,7 @@ export function ReviewPanel() {
           <span className={styles.shipLeft}>
             <div className={styles.truckBox}>
               <img
-                src="/icons/delivery.svg"
+                src={asset("/icons/delivery.svg")}
                 alt=""
                 className={styles.truck}
                 aria-hidden="true"

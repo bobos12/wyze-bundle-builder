@@ -1,4 +1,5 @@
 import type { ReviewLine as ReviewLineModel } from "../../state/selectors";
+import { asset } from "../../utils/asset";
 import { useBundle } from "../../state/useBundle";
 import { ProductImage } from "../builder/ProductImage";
 import { PriceTag } from "../ui/PriceTag";
@@ -31,7 +32,7 @@ export function ReviewLine({ line }: { line: ReviewLineModel }) {
         {isPlan ? (
           line.productId === "cam-unlimited" ? (
             <img
-              src="/icons/plan-shield.svg"
+              src={asset("/icons/plan-shield.svg")}
               alt=""
               className={styles.planIcon}
               aria-hidden="true"

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { asset } from "../../utils/asset";
 import styles from "./ProductImage.module.css";
 
 interface ProductImageProps {
@@ -29,7 +30,7 @@ export function ProductImage({ src, alt }: ProductImageProps) {
   return (
     <img
       className={styles.image}
-      src={src}
+      src={asset(src)}
       alt={alt}
       loading="lazy"
       decoding="async"

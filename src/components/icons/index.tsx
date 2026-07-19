@@ -1,5 +1,6 @@
 import type { SVGProps } from "react";
 import type { IconKey } from "../../data/types";
+import { asset } from "../../utils/asset";
 
 /**
  * The icon registry.
@@ -37,7 +38,7 @@ const STEP_ICON_PATHS: Record<IconKey, string> = {
 export function StepIcon({ name, ...props }: { name: IconKey } & IconProps) {
   return (
     <img
-      src={STEP_ICON_PATHS[name]}
+      src={asset(STEP_ICON_PATHS[name])}
       alt=""
       style={{
         width: props.width || 24,
