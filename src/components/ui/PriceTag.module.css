@@ -47,6 +47,19 @@
   line-height: 1;
 }
 
+.lg.price {
+  font-weight: 600;
+}
+
+.lg .compare {
+  color: var(--c-gray-600);
+}
+
+.lg .active,
+.lg .discounted {
+  color: var(--c-purple);
+}
+
 /* size="lg": identical to normal everywhere except the wide review-panel
    list, where the design calls for noticeably larger, inline (not stacked)
    price text — compare-at and active price sit side by side. */

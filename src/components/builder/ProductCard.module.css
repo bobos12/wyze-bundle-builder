@@ -29,9 +29,6 @@
   overflow: hidden;
 }
 
-/* Anchored to the card corner (not the image box) so it stays put even when
-   the image itself is centered within the card, e.g. the >=1440px layout
-   below. */
 .badge {
   position: absolute;
   top: 11px;
